@@ -24,15 +24,16 @@
             padding: 0;
         }
 
-        /* Header & Navegación */
+        /* Header & Navegación con Fusión de Logo */
         header {
-            background-color: var(--primary-color);
+            background-color: #0f172a; /* Mismo color base para una integración perfecta */
             color: var(--text-light);
-            padding: 1rem 2rem;
+            padding: 0.5rem 2rem; /* Espaciado optimizado para el logo */
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .nav-container {
@@ -43,27 +44,56 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-light);
-            letter-spacing: 1px;
+        /* Contenedor y Efecto de Fusión del Logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
         }
 
-        .logo span {
-            color: var(--secondary-color);
+        .nav-logo {
+            height: 65px; /* Altura ideal para la correcta visualización del eslogan */
+            width: auto;
+            object-fit: contain;
+            /* Elimina los bordes oscuros de la imagen fusionándola con el fondo de la barra */
+            mix-blend-mode: screen; 
+            filter: contrast(110%); /* Resalta los blancos y colores vivos del engranaje */
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
         }
 
         nav a {
-            color: var(--text-light);
+            color: #cbd5e1;
             text-decoration: none;
-            margin-left: 1.5rem;
+            margin-left: 2rem;
             font-size: 0.95rem;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: var(--secondary-color);
+        }
+
+        /* Botón estilizado dentro del menú */
+        .btn-nav-cta {
+            background-color: transparent;
+            color: var(--accent-color) !important;
+            border: 2px solid var(--accent-color);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav-cta:hover {
+            background-color: var(--accent-color);
+            color: var(--text-light) !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transform: translateY(-1px);
         }
 
         /* Hero Section */
@@ -247,24 +277,28 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.75rem; }
+            .nav-container { flex-direction: column; gap: 0.5rem; padding: 0.5rem 0; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+            nav a { margin: 0 0.5rem; font-size: 0.9rem; }
+            .btn-nav-cta { order: -1; margin-bottom: 0.2rem; }
+            .nav-logo { height: 55px; } /* Adaptación del tamaño en versión móvil */
         }
     </style>
 </head>
 <body>
 
-    <!-- Navegación -->
+    <!-- Navegación Premium con Logo Integrado -->
     <header>
         <div class="nav-container">
-            <div class="logo">JVC<span>services_mgta</span></div>
+            <a href="#" class="logo-container">
+                <img src="logo.png" alt="JVCservices" class="nav-logo">
+            </a>
+            
             <nav>
                 <a href="#soluciones">Soluciones Corporativas</a>
-                <a href="#infraestructura">Soporte e Infraestructura</a>
-                <a href="#nosotros">Por qué elegirnos</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#infraestructura">Soporte IT</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="https://wa.me/584121118743" class="btn-nav-cta" target="_blank">Contactar</a>
             </nav>
         </div>
     </header>
@@ -272,9 +306,9 @@
     <!-- Sección Hero -->
     <section class="hero">
         <div class="hero-container">
-            <span style="color: var(--secondary-color); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Tecnología de Datos & Automatización Inteligente</span>
-            <h1>Elevamos la eficiencia de su empresa al siguiente nivel</h1>
-            <p>Especialistas en transformar sistemas tradicionales en ecosistemas ágiles, inteligentes y completamente automatizados en la Isla de Margarita.</p>
+            <span style="color: var(--secondary-color); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Tecnología de Datos & Automatización Inteligente</span>[cite: 1]
+            <h1>Elevamos la eficiencia de su empresa al siguiente nivel</h1>[cite: 1]
+            <p>Especialistas en transformar sistemas tradicionales en ecosistemas ágiles, inteligentes y completamente automatizados en la Isla de Margarita.</p>[cite: 1]
             <a href="https://wa.me/584121118743" class="btn-cta" target="_blank">Agendar Auditoría Operativa Gratis</a>
         </div>
     </section>
@@ -290,10 +324,10 @@
                 <h3>Soporte Especializado ERP</h3>
                 <p>Garantizamos la continuidad operativa, corrección de inconsistencias y optimización avanzada de sus bases de datos en los sistemas más utilizados del mercado:</p>
                 <ul>
-                    <li><strong>Profit Plus (Administrativo, Contabilidad, Nómina):</strong> Conocimiento estructural profundo para consultas complejas y reparaciones de tablas.</li>
-                    <li><strong>saint (Enterprise y Professional):</strong> Configuración, mantenimiento y optimización operativa.</li>
-                    <li><strong>A2 Softway, Valery y d3xd:</strong> Soporte integral a usuarios finales y resolución de errores críticos.</li>
-                    <li><strong>Automatización BCV Activa:</strong> Sincronización automática de la tasa oficial en sus sistemas, erradicando los ajustes manuales y fallas de facturación.</li>
+                    <li><strong>Profit Plus (Administrativo, Contabilidad, Nómina):</strong> Conocimiento estructural profundo para consultas complejas y reparaciones de tablas.</li>[cite: 1]
+                    <li><strong>saint (Enterprise y Professional):</strong> Configuración, mantenimiento y optimización operativa.</li>[cite: 1]
+                    <li><strong>A2 Softway, Valery y d3xd:</strong> Soporte integral a usuarios finales y resolución de errores críticos.</li>[cite: 1]
+                    <li><strong>Automatización BCV Activa:</strong> Sincronización automática de la tasa oficial en sus sistemas, erradicando los ajustes manuales y fallas de facturación.</li>[cite: 1]
                 </ul>
             </div>
 
@@ -305,7 +339,7 @@
                 <ul>
                     <li><strong>Métricas de Ventas Exhaustivas:</strong> Volumen total facturado, ranking detallado de productos más vendidos, márgenes de ganancia por líneas y sucursales.</li>
                     <li><strong>Análisis del Consumidor:</strong> Ticket promedio de compra, frecuencia de visitas y comportamiento de clientes recurrentes.</li>
-                    <li><strong>Control de Cobranzas y Auditoría:</strong> Cuentas por cobrar envejecidas, reportes de nómina y conciliación en tiempo real.</li>
+                    <li><strong>Control de Cobranzas y Auditoría:</strong> Cuentas por cobrar envejecidas, reportes de nómina y conciliación en tiempo real.</li>[cite: 1]
                     <li><strong>Reportería Automatizada:</strong> Despacho programado de resúmenes de KPIs directo a su correo corporativo o canal de Telegram institucional sin intervención humana.</li>
                 </ul>
             </div>
@@ -325,12 +359,12 @@
             <!-- CARD 4: Agentes de Inteligencia Artificial y CRM -->
             <div class="service-card">
                 <span class="badge">Conversational AI</span>
-                <h3>Agentes IA &amp; Mensajería 24/7</h3>
+                <h3>Agentes IA & Mensajería 24/7</h3>[cite: 1]
                 <p>Implementamos agentes inteligentes integrados con potentes CRMs como Kommo para automatizar el ciclo de venta e información:</p>
                 <ul>
-                    <li><strong>Omnicanalidad Absoluta:</strong> Gestión autónoma de flujos conversacionales en WhatsApp, Instagram DM y correos electrónicos.</li>
-                    <li><strong>Atención y Cierre Inmediato:</strong> Filtrado de prospectos, respuestas a preguntas frecuentes sobre servicios o habitaciones, y derivación inteligente a asesores humanos solo cuando es requerido.</li>
-                    <li><strong>Operación Continua:</strong> Disponibilidad las 24 horas del día, los 7 días de la semana, capturando prospectos e ingresos en todo momento.</li>
+                    <li><strong>Omnicanalidad Absoluta:</strong> Gestión autónoma de flujos conversacionales en WhatsApp, Instagram DM y correos electrónicos.</li>[cite: 1]
+                    <li><strong>Atención y Cierre Inmediato:</strong> Filtrado de prospectos, respuestas a preguntas frecuentes sobre servicios o habitaciones, y derivación inteligente a asesores humanos solo cuando es requerido.</li>[cite: 1]
+                    <li><strong>Operación Continua:</strong> Disponibilidad las 24 horas del día, los 7 días de la semana, capturando prospectos e ingresos en todo momento.</li>[cite: 1]
                 </ul>
             </div>
 
@@ -363,7 +397,7 @@
                     <ul>
                         <li><strong>Soporte a Usuarios y Endpoint:</strong> Mesa de ayuda integral para la resolución de problemas en entornos operativos Windows y aplicaciones de oficina.</li>
                         <li><strong>Administración de Servidores y Redes:</strong> Despliegue, configuración y auditoría de Servidores SQL, gestión de copias de seguridad críticas y conectividad local estable.</li>
-                        <li><strong>Suministro de Hardware Retail:</strong> Equipamiento especializado para alta demanda en tiendas o cadenas (Servidores, pantallas táctiles, impresoras térmicas, estaciones de trabajo).</li>
+                        <li><strong>Suministro de Hardware Retail:</strong> Equipamiento especializado para alta demanda en tiendas o cadenas (Servidores, pantallas táctiles, impresoras térmicas, estaciones de trabajo).</li>[cite: 1]
                     </ul>
                 </div>
 
@@ -373,19 +407,19 @@
 
     <!-- Sección ¿Por qué elegirnos? -->
     <section class="section benefits-bg" id="nosotros">
-        <h2 class="section-title">¿Por qué JVCservices_mgta?</h2>
+        <h2 class="section-title">¿Por qué JVCservices_mgta?</h2>[cite: 1]
         <div class="benefits-grid">
             <div class="benefit-item">
                 <h4>Especialistas ERP</h4>
-                <p>Dominio profundo del backend y las estructuras de datos de sistemas comerciales líderes como Profit Plus para integraciones limpias.</p>
+                <p>Dominio profundo del backend y las estructuras de datos de sistemas comerciales líderes como Profit Plus para integraciones limpias.</p>[cite: 1]
             </div>
             <div class="benefit-item">
                 <h4>Transformación Digital</h4>
-                <p>Reemplazamos los cuellos de botella manuales por flujos automáticos modernos, escalables y auditables.</p>
+                <p>Reemplazamos los cuellos de botella manuales por flujos automáticos modernos, escalables y auditables.</p>[cite: 1]
             </div>
             <div class="benefit-item">
                 <h4>Soporte Local Integral</h4>
-                <p>Solución centralizada en hardware, software, analítica e Inteligencia Artificial, atendida directamente en la Isla de Margarita.</p>
+                <p>Solución centralizada en hardware, software, analítica e Inteligencia Artificial, atendida directamente en la Isla de Margarita.</p>[cite: 1]
             </div>
         </div>
     </section>
@@ -394,23 +428,23 @@
     <footer id="contacto">
         <div class="footer-container">
             <div class="footer-col">
-                <h4>JVCservices_mgta</h4>
+                <h4>JVCservices_mgta</h4>[cite: 1]
                 <p>Llevamos la innovación tecnológica de nivel global a la comunidad empresarial del Estado Nueva Esparta, construyendo soluciones de datos confiables.</p>
             </div>
             <div class="footer-col">
                 <h4>Canales de Contacto</h4>
-                <a href="https://wa.me/584121118743" target="_blank">💬 WhatsApp: +58 412-1118743</a>
-                <a href="mailto:jvcservices.mgta@gmail.com">✉️ Email: jvcservices.mgta@gmail.com</a>
-                <a href="https://instagram.com/jvcservices_mgta" target="_blank">📸 Instagram: @jvcservices_mgta</a>
+                <a href="https://wa.me/584121118743" target="_blank">💬 WhatsApp: +58 412-1118743</a>[cite: 1]
+                <a href="mailto:jvcservices.mgta@gmail.com">✉️ Email: jvcservices.mgta@gmail.com</a>[cite: 1]
+                <a href="https://instagram.com/jvcservices_mgta" target="_blank">📸 Instagram: @jvcservices_mgta</a>[cite: 1]
             </div>
             <div class="footer-col">
                 <h4>Ubicación</h4>
-                <p>📍 Isla de Margarita, Venezuela</p>
+                <p>📍 Isla de Margarita, Venezuela</p>[cite: 1]
                 <p>Atención presencial corporativa y soporte técnico remoto a nivel nacional.</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 JVCservices_mgta. Todos los derechos reservados. Diseñado para la máxima operatividad empresarial.</p>
+            <p>&copy; 2026 JVCservices_mgta. Todos los derechos reservados. Diseñado para la máxima operatividad empresarial.</p>[cite: 1]
         </div>
     </footer>
 
