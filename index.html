@@ -2,183 +2,417 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JVCservices_mgta | Tecnología de Datos & Automatización Inteligente</title>
     <style>
-        @page {
-            size: A4;
-            margin: 0;
-            background-color: #0b0e14;
+        :root {
+            --primary-color: #0f172a; /* Azul oscuro corporativo */
+            --secondary-color: #0284c7; /* Azul brillante tecnológico */
+            --accent-color: #10b981; /* Verde éxito para CTAs */
+            --text-dark: #334155;
+            --text-light: #f8fafc;
+            --bg-light: #f1f5f9;
+            --bg-white: #ffffff;
         }
+
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
             margin: 0;
             padding: 0;
-            color: #e6edf3;
         }
-        .container {
-            width: 210mm;
-            height: 297mm;
-            position: relative;
-            overflow: hidden;
+
+        /* Header & Navegación */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
-        .header {
-            background-color: #161b22;
-            padding: 40px 50px;
-            border-bottom: 4px solid #ff6600;
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .brand {
-            font-size: 26pt;
-            font-weight: 800;
-            color: #ffffff;
-            margin: 0;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
             letter-spacing: 1px;
         }
-        .brand span {
-            color: #ff6600;
+
+        .logo span {
+            color: var(--secondary-color);
         }
-        .tagline {
-            font-size: 11pt;
-            color: #8b949e;
-            margin-top: 5px;
-            text-transform: uppercase;
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.3s;
         }
-        .content {
-            padding: 40px 50px;
+
+        nav a:hover {
+            color: var(--secondary-color);
         }
-        .hero-title {
-            font-size: 24pt;
-            color: #ffffff;
-            margin-bottom: 15px;
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
-        .hero-subtitle {
-            font-size: 12pt;
-            color: #c9d1d9;
-            margin-bottom: 35px;
-            max-width: 600px;
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
         }
-        .section-title {
-            font-size: 14pt;
-            color: #58a6ff;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            border-left: 4px solid #58a6ff;
-            padding-left: 12px;
-        }
-        .service-card {
-            background: #1c2128;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        .service-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 13pt;
-            color: #ff6600;
-        }
-        .service-card p {
-            margin: 0;
-            font-size: 10pt;
-            color: #c9d1d9;
-            line-height: 1.4;
-        }
-        .highlight-box {
-            background-color: rgba(88, 166, 255, 0.1);
-            border-left: 3px solid #58a6ff;
-            padding: 8px 12px;
-            margin-top: 10px;
-            font-size: 9pt;
-            font-style: italic;
-        }
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: #161b22;
-            padding: 30px 50px;
-            box-sizing: border-box;
-            border-top: 1px solid #30363d;
-        }
-        .contact-table {
-            width: 100%;
-        }
-        .contact-cell {
-            vertical-align: top;
-            font-size: 10pt;
-            color: #8b949e;
-        }
-        .highlight {
-            color: #ffffff;
+
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-        }
-        .cta-box {
-            background: linear-gradient(90deg, #ff6600 0%, #ff8c00 100%);
-            color: white;
-            padding: 15px;
-            text-align: center;
+            text-decoration: none;
             border-radius: 5px;
-            margin-top: 20px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: #059669;
+        }
+
+        /* Secciones Principales */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Grid de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--secondary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Sección de Beneficios / Diferenciadores */
+        .benefits-bg {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .benefits-bg .section-title {
+            color: var(--text-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer y Contacto */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 2rem 2rem 2rem;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 0.75rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <p class="brand">JVCservices<span>_mgta</span></p>
-            <p class="tagline">Tecnología de Datos & Automatización Inteligente</p>
+
+    <!-- Navegación -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">JVC<span>services_mgta</span></div>[cite: 1]
+            <nav>
+                <a href="#soluciones">Soluciones Corporativas</a>
+                <a href="#infraestructura">Soporte e Infraestructura</a>
+                <a href="#nosotros">Por qué elegirnos</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="content">
-            <h1 class="hero-title">Elevamos la eficiencia de su empresa al siguiente nivel</h1>
-            <p class="hero-subtitle">Especialistas en transformar sistemas tradicionales en ecosistemas inteligentes y automatizados.</p>
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <span style="color: var(--secondary-color); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Tecnología de Datos & Automatización Inteligente</span>[cite: 1]
+            <h1>Elevamos la eficiencia de su empresa al siguiente nivel</h1>[cite: 1]
+            <p>Especialistas en transformar sistemas tradicionales en ecosistemas ágiles, inteligentes y completamente automatizados en la Isla de Margarita.</p>[cite: 1]
+            <a href="https://wa.me/584121118743" class="btn-cta" target="_blank">Agendar Auditoría Operativa Gratis</a>
+        </div>
+    </section>
 
-            <h2 class="section-title">Nuestras Soluciones</h2>
-            
+    <!-- Sección Soluciones Avanzadas (Data & IA) -->
+    <section class="section" id="soluciones">
+        <h2 class="section-title">Nuestras Soluciones de Inteligencia de Negocio e IA</h2>
+        <div class="services-grid">
+
+            <!-- CARD 1: Soporte ERP y Conectividad -->
             <div class="service-card">
-                <h3>1. BI, Reportes Web & Soporte ERP</h3>
-                <p>Conectamos su sistema administrativo (Profit Plus, saint, d3xd, Valery) a Dashboards dinámicos para control de ventas, cobranzas y nómina en tiempo real.</p>
-                <div class="highlight-box">
-                    <strong>Optimización Especializada:</strong> Incluye la <strong>automatización de la tasa BCV</strong> directamente en su sistema, eliminando procesos manuales y errores en facturación.
+                <span class="badge">Sistemas Administrativos</span>
+                <h3>Soporte Especializado ERP</h3>
+                <p>Garantizamos la continuidad operativa, corrección de inconsistencias y optimización avanzada de sus bases de datos en los sistemas más utilizados del mercado:</p>
+                <ul>
+                    <li><strong>Profit Plus (Administrativo, Contabilidad, Nómina):</strong> Conocimiento estructural profundo para consultas complejas y reparaciones de tablas.</li>[cite: 1]
+                    <li><strong>saint (Enterprise y Professional):</strong> Configuración, mantenimiento y optimización operativa.</li>[cite: 1]
+                    <li><strong>A2 Softway, Valery y d3xd:</strong> Soporte integral a usuarios finales y resolución de errores críticos.</li>[cite: 1]
+                    <li><strong>Automatización BCV Activa:</strong> Sincronización automática de la tasa oficial en sus sistemas, erradicando los ajustes manuales y fallas de facturación.</li>[cite: 1]
+                </ul>
+            </div>
+
+            <!-- CARD 2: Business Intelligence Avanzado -->
+            <div class="service-card">
+                <span class="badge">Data & Analytics</span>
+                <h3>Dashboards, KPIs & Control de Datos</h3>
+                <p>Extraemos la información oculta de su base de datos (SQL Server, PostgreSQL, Firebird) y la convertimos en paneles interactivos dinámicos de Power BI y Reportes Web:</p>
+                <ul>
+                    <li><strong>Métricas de Ventas Exhaustivas:</strong> Volumen total facturado, ranking detallado de productos más vendidos, márgenes de ganancia por líneas y sucursales.</li>
+                    <li><strong>Análisis del Consumidor:</strong> Ticket promedio de compra, frecuencia de visitas y comportamiento de clientes recurrentes.</li>
+                    <li><strong>Control de Cobranzas y Auditoría:</strong> Cuentas por cobrar envejecidas, reportes de nómina y conciliación en tiempo real.</li>[cite: 1]
+                    <li><strong>Reportería Automatizada:</strong> Despacho programado de resúmenes de KPIs directo a su correo corporativo o canal de Telegram institucional sin intervención humana.</li>
+                </ul>
+            </div>
+
+            <!-- CARD 3: Innovación en Inventarios -->
+            <div class="service-card">
+                <span class="badge">Logística Moderna</span>
+                <h3>Automatización Inteligente de Inventarios</h3>
+                <p>Rediseñamos la gestión de almacenes implementando soluciones innovadoras del mercado actual que acaban con las pérdidas:</p>
+                <ul>
+                    <li><strong>Alertas de Stock Crítico:</strong> Notificaciones predictivas e inmediatas a compras cuando un artículo de alta rotación alcance niveles mínimos.</li>
+                    <li><strong>Conciliación Multicanal Automática:</strong> Sincronización automatizada entre las existencias reales en el ERP, sus bodegas físicas y su plataforma de E-commerce.</li>
+                    <li><strong>Monitoreo de Caducidad y Mermas:</strong> Tableros analíticos diseñados para rastrear fechas de vencimiento y auditar pérdidas operativas recurrentes.</li>
+                </ul>
+            </div>
+
+            <!-- CARD 4: Agentes de Inteligencia Artificial y CRM -->
+            <div class="service-card">
+                <span class="badge">Conversational AI</span>
+                <h3>Agentes IA & Mensajería 24/7</h3>[cite: 1]
+                <p>Implementamos agentes inteligentes integrados con potentes CRMs como Kommo para automatizar el ciclo de venta e información:</p>
+                <ul>
+                    <li><strong>Omnicanalidad Absoluta:</strong> Gestión autónoma de flujos conversacionales en WhatsApp, Instagram DM y correos electrónicos.</li>[cite: 1]
+                    <li><strong>Atención y Cierre Inmediato:</strong> Filtrado de prospectos, respuestas a preguntas frecuentes sobre servicios o habitaciones, y derivación inteligente a asesores humanos solo cuando es requerido.</li>[cite: 1]
+                    <li><strong>Operación Continua:</strong> Disponibilidad las 24 horas del día, los 7 días de la semana, capturando prospectos e ingresos en todo momento.</li>[cite: 1]
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección Infraestructura Tradicional e IT -->
+    <section class="section" style="background-color: var(--bg-white); max-width: 100%;" id="infraestructura">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">Soluciones IT Corrientes, Infraestructura y Ofimática</h2>
+            <div class="services-grid">
+
+                <!-- CARD 5: Eliminación de Tareas Manuales con Excel -->
+                <div class="service-card" style="border-top-color: var(--accent-color);">
+                    <span class="badge" style="background-color: #d1fae5; color: #065f46;">Eficiencia Administrativa</span>
+                    <h3>Automatización de Flujos y Destrucción de Excels Tediosos</h3>
+                    <p>Liberamos al departamento de administración de tareas repetitivas mediante flujos de trabajo inteligentes:</p>
+                    <ul>
+                        <li><strong>Migración de Datos Automatizada:</strong> Procesamiento automático de reportes manuales o textos planos directamente hacia sus bases de datos o sistemas centrales.</li>
+                        <li><strong>Eliminación de Carga Manual en Hojas de Cálculo:</strong> Unificamos archivos fragmentados de Excel en bases consolidadas estructuradas.</li>
+                        <li><strong>Automatización de Rutinas:</strong> Flujos automatizados para la generación de facturas masivas, envíos de cobros recurrentes y reportes internos.</li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="service-card">
-                <h3>2. Agentes IA & Mensajería 24/7</h3>
-                <p>Implementamos agentes inteligentes capaces de gestionar el flujo de mensajes en WhatsApp e Instagram y responder correos de forma autónoma. Atención inmediata y cierre de ventas sin intervención humana constante.</p>
-            </div>
+                <!-- CARD 6: Soporte e Infraestructura IT -->
+                <div class="service-card" style="border-top-color: var(--accent-color);">
+                    <span class="badge" style="background-color: #d1fae5; color: #065f46;">Soporte Técnico</span>
+                    <h3>Soporte a Sistemas, Redes y Servidores</h3>
+                    <p>Mantenemos su infraestructura tecnológica sólida, segura y de alto rendimiento a través de servicios de hardware y conectividad de nivel empresarial:</p>
+                    <ul>
+                        <li><strong>Soporte a Usuarios y Endpoint:</strong> Mesa de ayuda integral para la resolución de problemas en entornos operativos Windows y aplicaciones de oficina.</li>
+                        <li><strong>Administración de Servidores y Redes:</strong> Despliegue, configuración y auditoría de Servidores SQL, gestión de copias de seguridad críticas y conectividad local estable.</li>
+                        <li><strong>Suministro de Hardware Retail:</strong> Equipamiento especializado para alta demanda en tiendas o cadenas (Servidores, pantallas táctiles, impresoras térmicas, estaciones de trabajo).</li>[cite: 1]
+                    </ul>
+                </div>
 
-            <div class="service-card">
-                <h3>3. Suministro de Hardware de Alta Gama</h3>
-                <p>Equipamiento tecnológico diseñado para el alto rendimiento retail: Servidores SQL, estaciones de auto-pago, pantallas touch screen, impresoras térmicas y estaciones de trabajo configuradas.</p>
-            </div>
-
-            <h2 class="section-title">¿Por qué JVCservices_mgta?</h2>
-            <p style="font-size: 10pt; color: #c9d1d9; line-height: 1.6;">
-                • <strong>Expertos en Profit Plus:</strong> Conocimiento profundo de la estructura de datos para integraciones sin errores.<br>
-                • <strong>Transformación Digital Real:</strong> De tareas manuales lentas a procesos automáticos precisos.<br>
-                • <strong>Soporte Local Integral:</strong> Hardware y Software atendidos por el mismo equipo técnico en la Isla de Margarita.
-            </p>
-
-            <div class="cta-box">
-                IMPULSE SU OPERATIVIDAD HOY MISMO
             </div>
         </div>
+    </section>
 
-        <div class="footer">
-            <table class="contact-table">
-                <tr>
-                    <td class="contact-cell">
-                        <span class="highlight">WhatsApp:</span> +58 412-1118743<br>
-                        <span class="highlight">Instagram:</span> @jvcservices_mgta
-                    </td>
-                    <td class="contact-cell" style="text-align: right;">
-                        <span class="highlight">Email:</span> jvcservices.mgta@gmail.com<br>
-                        <span class="highlight">Ubicación:</span> Isla de Margarita, Venezuela
-                    </td>
-                </tr>
-            </table>
+    <!-- Sección ¿Por qué elegirnos? -->
+    <section class="section benefits-bg" id="nosotros">
+        <h2 class="section-title">¿Por qué JVCservices_mgta?</h2>[cite: 1]
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <h4>Especialistas ERP</h4>
+                <p>Dominio profundo del backend y las estructuras de datos de sistemas comerciales líderes como Profit Plus para integraciones limpias.</p>[cite: 1]
+            </div>
+            <div class="benefit-item">
+                <h4>Transformación Digital</h4>
+                <p>Reemplazamos los cuellos de botella manuales por flujos automáticos modernos, escalables y auditables.</p>[cite: 1]
+            </div>
+            <div class="benefit-item">
+                <h4>Soporte Local Integral</h4>
+                <p>Solución centralizada en hardware, software, analítica e Inteligencia Artificial, atendida directamente en la Isla de Margarita.</p>[cite: 1]
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer / Datos de Contacto -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>JVCservices_mgta</h4>[cite: 1]
+                <p>Llevamos la innovación tecnológica de nivel global a la comunidad empresarial del Estado Nueva Esparta, construyendo soluciones de datos confiables.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Canales de Contacto</h4>
+                <a href="https://wa.me/584121118743" target="_blank">💬 WhatsApp: +58 412-1118743</a>[cite: 1]
+                <a href="mailto:jvcservices.mgta@gmail.com">✉️ Email: jvcservices.mgta@gmail.com</a>[cite: 1]
+                <a href="https://instagram.com/jvcservices_mgta" target="_blank">📸 Instagram: @jvcservices_mgta</a>[cite: 1]
+            </div>
+            <div class="footer-col">
+                <h4>Ubicación</h4>
+                <p>📍 Isla de Margarita, Venezuela</p>[cite: 1]
+                <p>Atención presencial corporativa y soporte técnico remoto a nivel nacional.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 JVCservices_mgta. Todos los derechos reservados. Diseñado para la máxima operatividad empresarial.</p>[cite: 1]
+        </div>
+    </footer>
+
 </body>
 </html>
