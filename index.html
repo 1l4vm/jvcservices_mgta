@@ -52,24 +52,24 @@
             text-decoration: none;
         }
 
-        /* Ventana de recorte para aislar el engranaje del logo sin el parche cuadrado */
+      /* Ventana de recorte corregida: Solo el isotipo sin letras cortadas */
         .logo-clip-window {
-            width: 45px;
-            height: 45px;
+            width: 50px; /* Un toque más amplio para que el engranaje luzca completo */
+            height: 50px;
             overflow: hidden;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #111a2e; /* Ajustado al tono exacto de tu engranaje */
+            background-color: #111a2e;
             box-shadow: 0 0 10px rgba(2, 132, 199, 0.2);
         }
 
         .logo-clip-window img {
-            width: 120px;
-            height: 120px;
+            width: 170px; /* Mayor zoom para aislar el símbolo */
+            height: 170px;
             object-fit: cover;
-            object-position: 50% 21%; /* Enfoca exclusivamente el isotipo tecnológico superior */
+            object-position: 50% 12%; /* Enfoque perfecto en el engranaje, ocultando el texto inferior */
         }
 
         .brand-text {
